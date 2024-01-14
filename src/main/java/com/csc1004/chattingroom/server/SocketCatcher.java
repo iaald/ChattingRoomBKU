@@ -17,9 +17,11 @@ public class SocketCatcher extends Thread {
     public void run() {
         while (is_running) {
             try {
+                System.out.println("Catcher 监听中");
                 user_Socket.add(this.serverSocket.accept());
+                System.out.println("新建连接");
             } catch (IOException e) {
-                System.out.println("[ERROR]:IOException at SocketCatcher.java when adding sockets");
+                throw new RuntimeException(e);
             }
         }
     }

@@ -4,10 +4,14 @@ import java.io.IOException;
 
 public class ServerManager {
 
-    public void ServerManagerMain(String[] args) throws IOException {
+    public void ServerManagerMain() throws IOException {
         SocketContainer socketContainer = new SocketContainer(this);
-        SocketCatcher socketCatcher = new SocketCatcher(socketContainer);
-        socketCatcher.start();
+        socketContainer.initialize();
+    }
+
+    public static void main(String[] args) throws IOException {
+        ServerManager serverManager = new ServerManager();
+        serverManager.ServerManagerMain();
     }
 
 }

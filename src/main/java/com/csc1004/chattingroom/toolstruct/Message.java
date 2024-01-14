@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Message implements Serializable {
-    Message(String content, String sender, boolean is_command) {
+    public Message(String content, String sender, boolean is_command) {
         this.content = content;
         this.sender = sender;
         Date time = new Date();
