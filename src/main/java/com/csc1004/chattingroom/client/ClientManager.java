@@ -20,8 +20,10 @@ public class ClientManager {
         System.out.println("客户端 socket 返回：" + socket.getClass());
         OutputStream outputStream = socket.getOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(outputStream);
-        oos.writeObject(new Message("Hello Server", "ADMIN", false));
-        oos.writeObject(new Message("Hello again, Server", "ADMIN", false));
+        oos.writeObject(new Message("HasAdded", "ADMIN", false));
+        oos.writeObject(new Message("Hello, Server", "ADMIN", false));
+        oos.writeObject(new Message("#exit","ADMIN",true));
+
         oos.close();
         socket.close();
         System.out.println("客户端发信完成");

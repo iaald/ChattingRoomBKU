@@ -1,0 +1,5 @@
+在client类中需实现
+#cls
+发送
+#exit
+#recall

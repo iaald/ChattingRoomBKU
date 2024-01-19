@@ -19,11 +19,6 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        try {
-            if (is_command) throw new RuntimeException("No Need Printed");
-            return (time + " " + sender + ": " + content);
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
+        return (time + " " + sender + ": " + content);
     }
 }
