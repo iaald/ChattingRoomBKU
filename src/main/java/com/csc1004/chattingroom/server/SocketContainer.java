@@ -39,6 +39,7 @@ public class SocketContainer {
         socketContainer.forEach(sktt -> {
             sktt.send(mes);
         });
+        if(mes.is_command) return;
         serverManager.store(mes);
     }
 
@@ -50,5 +51,8 @@ public class SocketContainer {
     void flush() {
         sendToAll(new Message("#cls", "Server", true));
         serverManager.getStore().forEach(this::sendToAll);
+    }
+    public ArrayList<Message> getStore(){
+        return serverManager.getStore();
     }
 }

@@ -47,16 +47,18 @@ public class SocketThread extends Thread {
         askForQuit();
     }
 
-    public void send(Message msg){
+    public <T> void send(T msg){
         try {
             this.oos.writeObject(msg);
         } catch (IOException e) {
-            System.out.println("[ERROR] in sending, socket does not exist");
+            System.out.println("[ERROR] in sending ["+ msg.getClass() +"], socket does not exist");
+            this.is_running = false;
         }
-        this.is_running = false;
     }
 
     void askForQuit() {
+        send(socketContainer.getStore());
+        send(new Message("#ex","Server",true));
         try {
             socket.close();
         } catch (IOException e) {
