@@ -25,6 +25,6 @@ public class ClientManager {
 //
 //        }
         ClientView clientView = new ClientView(new ClientMenu().showMainMenu());
-
+        clientView.showClientView();
     }
 }
