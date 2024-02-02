@@ -11,7 +11,8 @@ public class ClientMenu {
      * showMainMenu()
      * Create the main menu and log-in menu.
      */
-    public void showMainMenu() {
+    public String showMainMenu() {
+        String user_input2 = "";
         while (is_running) {
             System.out.println("\t\t==========WELCOME==========");
             System.out.println("Use command:");
@@ -25,11 +26,16 @@ public class ClientMenu {
             } else if (user_input1.equals("#login")) {
                 System.out.println("\t\t==========WELCOME==========");
                 System.out.print("ID: ");
-                String user_input2 = scn.nextLine();
-                //Go to ClientView page
+                user_input2 = scn.nextLine();
+                if(user_input2.isEmpty()){
+                    System.out.println("Invalid user name.");
+                    continue;
+                }
+                break;
             } else {
                 System.out.println("Invalid instruction.");
             }
         }
+        return user_input2;
     }
 }
